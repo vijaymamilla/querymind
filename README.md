@@ -10,7 +10,7 @@
 
 > 📹 _Demo video link: [Add link after recording]_
 >
-> 🔗 _GitHub: [https://github.com/your-username/querymind](https://github.com/your-username/querymind)_
+> 🔗 _GitHub: [https://github.com/vijaymamilla/querymind](https://github.com/vijaymamilla/querymind)_
 
 ---
 
@@ -75,7 +75,7 @@ User Question
 
 ### 2. Clone & configure
 ```bash
-git clone https://github.com/your-username/querymind.git
+git clone https://github.com/vijaymamilla/querymind.git
 cd querymind
 
 cp backend/.env.example backend/.env
@@ -227,16 +227,18 @@ python eval/run_eval.py --output eval/report.json
 | Metric | Score |
 |---|---|
 | Execution Accuracy | **100%** (25/25) |
-| Exact Match Rate | see `eval/report.json` for details |
+| Exact Match Rate | **8%** (2/25) |
+
+> **Note on Exact Match:** The low exact match rate is expected — the pipeline appends `LIMIT 500` (the configured `max_rows` guardrail) to all queries for safety, which differs from the bare ground-truth SQL. All 25 queries executed correctly and returned the right results.
 
 Breakdown by query type:
 
-| Type | Count | Exec Accuracy |
-|---|---|---|
-| SELECT_SIMPLE | 6 | 100% |
-| SELECT_AGGREGATE | 7 | 100% |
-| SELECT_JOIN | 7 | 100% |
-| SELECT_TEMPORAL | 5 | 100% |
+| Type | Count | Exec Accuracy | Exact Match |
+|---|---|---|---|
+| SELECT_SIMPLE | 6 | 100% | 16.7% |
+| SELECT_AGGREGATE | 7 | 100% | 0% |
+| SELECT_JOIN | 7 | 100% | 14.3% |
+| SELECT_TEMPORAL | 5 | 100% | 0% |
 
 ---
 
