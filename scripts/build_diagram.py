@@ -16,18 +16,18 @@ fig, ax = plt.subplots(1, 1, figsize=(22, 14))
 ax.set_xlim(0, 22)
 ax.set_ylim(0, 14)
 ax.axis("off")
-fig.patch.set_facecolor("#0F172A")
-ax.set_facecolor("#0F172A")
+fig.patch.set_facecolor("#FFFFFF")
+ax.set_facecolor("#FFFFFF")
 
-# ── Colour palette ────────────────────────────────────────────────────────────
-C_BG       = "#0F172A"
+# ── Colour palette (light theme) ──────────────────────────────────────────────
+C_BG       = "#FFFFFF"
 C_TITLE_BG = "#0EA5E9"
-C_STAGE_BG = "#1E3A5F"
-C_CARD_BG  = "#0D1F38"
-C_ARROW    = "#0EA5E9"
-C_WHITE    = "#FFFFFF"
-C_GRAY     = "#94A3B8"
-C_GREEN    = "#22C55E"
+C_STAGE_BG = "#E0F2FE"
+C_CARD_BG  = "#F0F9FF"
+C_ARROW    = "#0284C7"
+C_WHITE    = "#1E293B"   # text on light bg — dark slate
+C_GRAY     = "#475569"
+C_GREEN    = "#16A34A"
 C_YELLOW   = "#F59E0B"
 C_PURPLE   = "#8B5CF6"
 C_ORANGE   = "#F97316"
@@ -69,7 +69,7 @@ label(ax, 11.0, 13.38, "QueryMind AI  —  Text-to-SQL Analytics Engine",
       size=18, bold=True, color=C_WHITE)
 label(ax, 11.0, 13.05,
       "Natural language querying over PostgreSQL  •  7-Stage Modular Pipeline  •  Qdrant RAG  •  GPT-4o  •  Runtime Guardrails",
-      size=9, color="#E0F2FE")
+      size=9, color="#0369A1")
 
 # Tech logos row
 techs = [
@@ -83,7 +83,7 @@ techs = [
     ("🐳", "Docker", 20.0),
 ]
 for icon, name, tx in techs:
-    label(ax, tx, 12.88, f"{icon} {name}", size=7.5, color="#BAE6FD")
+    label(ax, tx, 12.88, f"{icon} {name}", size=7.5, color="#0369A1")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -100,13 +100,13 @@ inputs = [
 ]
 for i, (ic, typ, ex) in enumerate(inputs):
     iy = 11.4 - i * 0.95
-    rbox(ax, 0.35, iy - 0.35, 2.3, 0.75, fc="#1E1B4B", ec=C_PURPLE, lw=0.8, radius=0.15)
+    rbox(ax, 0.35, iy - 0.35, 2.3, 0.75, fc="#EEF2FF", ec=C_PURPLE, lw=0.8, radius=0.15)
     label(ax, 0.72, iy + 0.02, ic, size=11)
     label(ax, 1.55, iy + 0.15, typ, size=8, bold=True, color=C_WHITE)
     label(ax, 1.55, iy - 0.08, ex, size=7, color=C_GRAY)
 
 label(ax, 1.5, 7.9, "FastAPI\nAsync Upload", size=7.5, color=C_GRAY)
-rbox(ax, 0.5, 7.6, 2.0, 0.55, fc="#0D1F38", ec=C_GRAY, lw=0.8, radius=0.15)
+rbox(ax, 0.5, 7.6, 2.0, 0.55, fc="#F0F9FF", ec=C_GRAY, lw=0.8, radius=0.15)
 label(ax, 1.5, 7.88, "POST  /query", size=8, color=C_CYAN, bold=True)
 
 # arrow from input to pipeline
@@ -179,7 +179,7 @@ for i, st in enumerate(stages):
 
     label(ax, x + BOX_W/2, BOX_Y + BOX_H - 0.38,
           f"[{st['num']}]  {st['icon']}  {st['label']}",
-          size=8.5, bold=True, color=C_BG)
+          size=8.5, bold=True, color="#FFFFFF")
 
     # Bullets
     for j, b in enumerate(st["bullets"]):
@@ -189,7 +189,7 @@ for i, st in enumerate(stages):
 
     # Model badge
     rbox(ax, x + 0.2, BOX_Y + 0.12, BOX_W - 0.4, 0.42,
-         fc="#0A1628", ec=col, lw=0.8, radius=0.12)
+         fc="#E0F2FE", ec=col, lw=0.8, radius=0.12)
     label(ax, x + BOX_W/2, BOX_Y + 0.33, st["model"], size=7.5, color=col, bold=True)
 
     # Stage number circle
@@ -211,7 +211,7 @@ label(ax, 14.9, BOX_Y - 0.28, "🔄  Self-Heal: error injected back to GPT-4o fo
 # ══════════════════════════════════════════════════════════════════════════════
 # DATA & KNOWLEDGE LAYER
 # ══════════════════════════════════════════════════════════════════════════════
-rbox(ax, 0.2, 2.5, 13.8, 4.55, fc="#080F1C", ec=C_CYAN, lw=1.5, radius=0.3)
+rbox(ax, 0.2, 2.5, 13.8, 4.55, fc="#F8FAFC", ec=C_CYAN, lw=1.5, radius=0.3)
 label(ax, 7.1, 6.72, "Data & Knowledge Layer", size=10, bold=True, color=C_CYAN)
 
 # PostgreSQL
@@ -241,7 +241,7 @@ qdrant_cols = [
 ]
 for j, (col_name, desc, dims) in enumerate(qdrant_cols):
     cy = 5.55 - j * 1.45
-    rbox(ax, 3.95, cy - 0.55, 2.9, 1.3, fc="#1A1500", ec=C_YELLOW, lw=0.7, radius=0.15)
+    rbox(ax, 3.95, cy - 0.55, 2.9, 1.3, fc="#FEFCE8", ec=C_YELLOW, lw=0.7, radius=0.15)
     label(ax, 5.4, cy + 0.42, col_name, size=8, bold=True, color=C_YELLOW)
     label(ax, 5.4, cy + 0.08, desc, size=7.5, color=C_WHITE)
     label(ax, 5.4, cy - 0.25, f"text-embedding-3-small  •  {dims}", size=6.5, color=C_GRAY)
@@ -268,7 +268,7 @@ admin_tables = [
 ]
 for j, (tbl, desc) in enumerate(admin_tables):
     ay = 5.7 - j * 0.66
-    rbox(ax, 10.7, ay - 0.2, 2.9, 0.58, fc="#1A001A", ec=C_PINK, lw=0.6, radius=0.12)
+    rbox(ax, 10.7, ay - 0.2, 2.9, 0.58, fc="#FDF4FF", ec=C_PINK, lw=0.6, radius=0.12)
     label(ax, 10.95, ay + 0.1, tbl, size=7.5, bold=True, color=C_PINK, ha="left")
     label(ax, 10.95, ay - 0.1, desc, size=6.8, color=C_GRAY, ha="left")
 
@@ -295,7 +295,7 @@ for j, o in enumerate(outputs):
     label(ax, 20.1, oy, "▸", size=7, color=C_GREEN, ha="left")
     label(ax, 20.35, oy, o, size=7.5, color=C_WHITE, ha="left")
 
-rbox(ax, 19.95, 7.45, 1.8, 0.55, fc="#0A2010", ec=C_GREEN, lw=0.8, radius=0.12)
+rbox(ax, 19.95, 7.45, 1.8, 0.55, fc="#DCFCE7", ec=C_GREEN, lw=0.8, radius=0.12)
 label(ax, 20.85, 7.73, "GET results", size=7.5, color=C_GREEN, bold=True)
 
 # Arrow from formatter to output
@@ -305,7 +305,7 @@ arrow(ax, 19.7, BOX_Y + BOX_H/2 + 0.3, 19.9, BOX_Y + BOX_H/2 + 0.3, lw=2.0)
 # ══════════════════════════════════════════════════════════════════════════════
 # ADMIN UI PANEL
 # ══════════════════════════════════════════════════════════════════════════════
-rbox(ax, 14.2, 2.65, 7.6, 3.8, fc="#080F1C", ec=C_PURPLE, lw=1.5, radius=0.3)
+rbox(ax, 14.2, 2.65, 7.6, 3.8, fc="#F8FAFC", ec=C_PURPLE, lw=1.5, radius=0.3)
 label(ax, 18.0, 6.12, "⚙️  Admin Panel  —  Next.js 14 + React + Tailwind CSS",
       size=9, bold=True, color=C_PURPLE)
 
@@ -321,14 +321,14 @@ for ic, name, desc, col, sx in admin_screens:
     label(ax, sx + 0.875, 5.22, name, size=7.5, bold=True, color=col)
     label(ax, sx + 0.875, 4.82, desc, size=6.5, color=C_GRAY)
     # URL badge
-    rbox(ax, sx + 0.1, 2.92, 1.55, 0.38, fc="#0A1628", ec=col, lw=0.6, radius=0.1)
+    rbox(ax, sx + 0.1, 2.92, 1.55, 0.38, fc="#E0F2FE", ec=col, lw=0.6, radius=0.1)
     label(ax, sx + 0.875, 3.11, f"/admin/{name.lower().split()[0]}", size=6.5, color=col)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # EVALUATION SUMMARY (bottom right)
 # ══════════════════════════════════════════════════════════════════════════════
-rbox(ax, 14.2, 0.15, 7.6, 2.2, fc="#080F1C", ec=C_GREEN, lw=1.5, radius=0.3)
+rbox(ax, 14.2, 0.15, 7.6, 2.2, fc="#F8FAFC", ec=C_GREEN, lw=1.5, radius=0.3)
 label(ax, 18.0, 2.02, "📊  Evaluation Summary  —  25 Ground-Truth Queries", size=9, bold=True, color=C_GREEN)
 
 eval_metrics = [
@@ -350,14 +350,14 @@ query_types = [
     ("SELECT_TEMPORAL",  C_YELLOW, 19.75),
 ]
 for qt, col, qx in query_types:
-    rbox(ax, qx, 0.18, 1.65, 0.38, fc="#0A1628", ec=col, lw=0.8, radius=0.1)
+    rbox(ax, qx, 0.18, 1.65, 0.38, fc="#E0F2FE", ec=col, lw=0.8, radius=0.1)
     label(ax, qx + 0.825, 0.37, qt, size=6, color=col, bold=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # HOW IT WORKS (right column)
 # ══════════════════════════════════════════════════════════════════════════════
-rbox(ax, 0.2, 0.15, 13.8, 2.2, fc="#080F1C", ec=C_CYAN, lw=1.5, radius=0.3)
+rbox(ax, 0.2, 0.15, 13.8, 2.2, fc="#F8FAFC", ec=C_CYAN, lw=1.5, radius=0.3)
 label(ax, 7.1, 2.02, "⚡  How It Works", size=9, bold=True, color=C_CYAN)
 
 steps = [
