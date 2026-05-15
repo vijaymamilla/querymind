@@ -14,6 +14,12 @@
 
 ---
 
+## Architecture
+
+![QueryMind AI Architecture](QueryMind_Architecture.png)
+
+---
+
 ## Approach
 
 QueryMind converts natural language questions into SQL through a **7-stage modular pipeline**:
