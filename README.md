@@ -8,7 +8,7 @@
 
 ## Demo
 
-> 📹 _Demo video link: [https://youtu.be/L4pgpwKwABo]_
+> 📹 _Demo video link: [https://youtu.be/Isz7pbXr5Ys]_
 >
 > 🔗 _GitHub: [https://github.com/vijaymamilla/querymind](https://github.com/vijaymamilla/querymind)_
 
